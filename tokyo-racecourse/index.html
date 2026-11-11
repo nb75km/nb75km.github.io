@@ -64,19 +64,19 @@
           <div class="route-head"><strong class="route-name">京王線ルート</strong><span class="tag">正門に近い</span></div>
           <p class="route-path">府中競馬正門前駅 <span aria-hidden="true">→</span> 正門</p>
           <p class="muted">京王競馬場線／駅から徒歩約2分</p>
-          <div class="route-links"><a class="linkbtn" id="keioYahoo" href="https://transit.yahoo.co.jp/" target="_blank" rel="noopener noreferrer">乗換・時刻・料金を見る ↗</a><a class="linkbtn" id="keioMaps" href="https://www.google.com/maps/" target="_blank" rel="noopener noreferrer">地図を見る ↗</a></div>
-          <p class="hint">乗換案内は指定した日付・出発時刻で検索します。</p>
+          <div class="route-links"><a class="linkbtn" id="keioYahoo" href="https://transit.yahoo.co.jp/" target="_blank" rel="noopener noreferrer">指定日時で乗換検索 ↗</a><a class="linkbtn" id="keioMaps" href="https://www.google.com/maps/" target="_blank" rel="noopener noreferrer">駅の場所を見る ↗</a></div>
+          <p class="hint" id="keioHint">選択した日時をYahoo!乗換案内に引き継ぎます。</p>
         </article>
         <article class="route jr">
           <div class="route-head"><strong class="route-name">JRルート</strong><span class="tag">西門から入場</span></div>
           <p class="route-path">府中本町駅 <span aria-hidden="true">→</span> 西門</p>
           <p class="muted">JR南武線・武蔵野線／駅から徒歩約5分</p>
-          <div class="route-links"><a class="linkbtn" id="jrYahoo" href="https://transit.yahoo.co.jp/" target="_blank" rel="noopener noreferrer">乗換・時刻・料金を見る ↗</a><a class="linkbtn" id="jrMaps" href="https://www.google.com/maps/" target="_blank" rel="noopener noreferrer">地図を見る ↗</a></div>
-          <p class="hint">乗換案内は指定した日付・出発時刻で検索します。</p>
+          <div class="route-links"><a class="linkbtn" id="jrYahoo" href="https://transit.yahoo.co.jp/" target="_blank" rel="noopener noreferrer">指定日時で乗換検索 ↗</a><a class="linkbtn" id="jrMaps" href="https://www.google.com/maps/" target="_blank" rel="noopener noreferrer">駅の場所を見る ↗</a></div>
+          <p class="hint" id="jrHint">選択した日時をYahoo!乗換案内に引き継ぎます。</p>
         </article>
       </div>
-      <div class="all"><div><strong>所要時間が短いルートを探す</strong><p>京王線・JRを限定せず、東京競馬場までの公共交通ルートをGoogle マップで比較します。</p></div><a class="all-link" id="bestMaps" href="https://www.google.com/maps/" target="_blank" rel="noopener noreferrer">全ルートを比較 ↗</a></div>
-      <p class="note"><strong>ご注意：</strong>このページ自体は時刻表を取得したり、最短経路を自動計算したりしません。ボタンを押すと外部の乗換案内／Google マップで現在の検索結果が開きます。京王線・JRの比較では「駅までの所要時間」に加えて、上記の徒歩時間も考慮してください。Google マップは日付・時刻が自動反映されないため、リンク先で<strong>「行く日・出発時刻」</strong>を指定し直してください。</p>
+      <div class="all"><div><strong>東京競馬場の場所を確認</strong><p>こちらは地図専用です。日付・時刻を指定したルート比較は上の「指定日時で乗換検索」からご確認ください。</p></div><a class="all-link" id="bestMaps" href="https://www.google.com/maps/" target="_blank" rel="noopener noreferrer">競馬場の地図を見る ↗</a></div>
+      <p class="note"><strong>日時について：</strong>「指定日時で乗換検索」は、入力した日付・出発時刻をYahoo!乗換案内の検索URLに設定します。「駅の場所を見る」「競馬場の地図を見る」は地図表示のみで、日時は引き継ぎません。Yahoo!側の仕様やアプリへの切り替えで設定が変わる場合は、開いた画面の日時もご確認ください。<br><strong>最短経路について：</strong>このページは時刻表を直接取得しません。2つの乗換検索結果に競馬場までの徒歩時間（京王線約2分／JR約5分）も加えて比較してください。</p>
     </section>
 
     <section class="info" aria-label="使い方"><h2>使い方は、たったの3ステップ</h2><div class="how">
@@ -104,17 +104,19 @@
     function yahooDirections(origin, dest, date, time) {
       const [y,m,d] = date.split('-');
       const [h,mi] = time.split(':');
+      if(!/^\d{4}-\d{2}-\d{2}$/.test(date) || !/^\d{2}:\d{2}$/.test(time)) throw new Error('Invalid date or time');
       const p = new URLSearchParams({
         from: origin, to: dest,
         y: y, m: m, d: d,
         hh: h, m1: mi.slice(0,1), m2: mi.slice(1,2),
-        type: '1', ticket: 'ic'
+        type: '1', ticket: 'ic', al: '1', shin: '1', ex: '1', hb: '1', lb: '1', sr: '1'
       });
       return 'https://transit.yahoo.co.jp/search/result?' + p.toString();
     }
-    function mapsDirections(origin, dest) {
-      const p = new URLSearchParams({api:'1', origin:origin+'駅', destination:dest, travelmode:'transit'});
-      return 'https://www.google.com/maps/dir/?' + p.toString();
+    // Googleマップの正式な共有URLでは日時指定ができないため、地図表示専用にする。
+    function mapsLocation(place) {
+      const p = new URLSearchParams({api:'1', query:place});
+      return 'https://www.google.com/maps/search/?' + p.toString();
     }
     function formatDate(date, time) {
       const [y,m,d] = date.split('-').map(Number);
@@ -139,9 +141,16 @@
       el('resultSub').textContent = formatDate(date, time) + ' ・ 乗換案内はこちら';
       el('keioYahoo').href = yahooDirections(origin,'府中競馬正門前',date,time);
       el('jrYahoo').href = yahooDirections(origin,'府中本町',date,time);
-      el('keioMaps').href = mapsDirections(origin,'府中競馬正門前駅 東京都府中市');
-      el('jrMaps').href = mapsDirections(origin,'府中本町駅 東京都府中市');
-      el('bestMaps').href = mapsDirections(origin,'東京競馬場 東京都府中市日吉町1-1');
+      // 日時が渡せないGoogleマップは場所の確認だけに限定。
+      el('keioMaps').href = mapsLocation('府中競馬正門前駅 東京都府中市');
+      el('jrMaps').href = mapsLocation('府中本町駅 東京都府中市');
+      el('bestMaps').href = mapsLocation('東京競馬場 東京都府中市日吉町1-1');
+      const [,mo,dy] = date.split('-');
+      const displayTime = `${Number(mo)}/${Number(dy)} ${time}`;
+      el('keioYahoo').textContent = `${displayTime}で乗換検索 ↗`;
+      el('jrYahoo').textContent = `${displayTime}で乗換検索 ↗`;
+      el('keioHint').textContent = `Yahoo!乗換案内へ：${formatDate(date,time)}（府中競馬正門前駅まで）`;
+      el('jrHint').textContent = `Yahoo!乗換案内へ：${formatDate(date,time)}（府中本町駅まで）`;
       resultsEl.classList.add('show');
       resultsEl.scrollIntoView({behavior:'smooth',block:'start'});
     }
@@ -150,7 +159,19 @@
       btn.addEventListener('click', () => {originEl.value=btn.dataset.station;originEl.focus();errorEl.classList.remove('show');});
     });
     // タブから戻った際に検索条件が変わっていた場合、古いリンクを使わせない
-    [originEl,dateEl,timeEl].forEach(input => input.addEventListener('input',()=>{resultsEl.classList.remove('show');}));
+    [originEl,dateEl,timeEl].forEach(input => {
+      const invalidate = () => { resultsEl.classList.remove('show'); };
+      input.addEventListener('input',invalidate);
+      input.addEventListener('change',invalidate);
+    });
+    // リンクを押す直前にも現在の検索条件からURLを再構築する。
+    ['keioYahoo','jrYahoo'].forEach(id => el(id).addEventListener('click', () => {
+      const origin=originEl.value.trim().replace(/駅$/, '');
+      if(origin && dateEl.value && timeEl.value) {
+        el('keioYahoo').href=yahooDirections(origin,'府中競馬正門前',dateEl.value,timeEl.value);
+        el('jrYahoo').href=yahooDirections(origin,'府中本町',dateEl.value,timeEl.value);
+      }
+    }));
     // 直接リンクされたHTMLのクエリ引数 ?from=新宿 にも対応
     try {const s = new URLSearchParams(location.search).get('from');if(s && s.length<=80){originEl.value=s;}}catch(e){}
   })();
