@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f302a">
+  <meta name="description" content="出発駅を入力するだけ。東京競馬場への最短候補・京王線ルート・JRルートを比較できる無料の案内ページです。">
+  <title>東京競馬場 アクセス検索｜駅からの行き方</title>
+  <style>
+    :root{--deep:#0e2925;--green:#155447;--green2:#1e6b5a;--cream:#f6f6ef;--paper:#ffffff;--line:#dfe6de;--muted:#65736e;--ink:#152922;--gold:#efc368;--softgold:#fff6e2;--shadow:0 16px 40px rgba(13,51,40,.07)}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--cream);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+    a{color:inherit} button,input{font:inherit} button{cursor:pointer} button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #ca9738;outline-offset:3px}
+    .wrap{max-width:1000px;padding:0 22px;margin:0 auto}
+    .hero{background:linear-gradient(133deg,#11372f 0%,#0b2822 72%);color:#fff;padding:25px 0 87px;position:relative;overflow:hidden}
+    .hero:after{content:"";position:absolute;width:390px;height:390px;border:2px solid rgba(255,255,255,.13);border-radius:50%;right:-85px;top:-205px;box-shadow:0 0 0 33px rgba(255,255,255,.025),0 0 0 70px rgba(255,255,255,.025);pointer-events:none}
+    .top{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:59px}.brand{display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.1em;font-weight:800}.brand-icon{width:36px;height:36px;border:1px solid rgba(255,255,255,.4);border-radius:50%;display:grid;place-items:center;font-size:17px;color:var(--gold)}
+    .mini-pill{border:1px solid rgba(255,255,255,.28);border-radius:99px;padding:8px 14px;font-size:12px;color:#d8e9e2;white-space:nowrap}
+    .eyebrow{font-size:12px;letter-spacing:.18em;font-weight:800;color:var(--gold);margin:0 0 12px}.hero h1{margin:0;font-size:clamp(30px,5.5vw,54px);letter-spacing:-.055em;line-height:1.28;font-weight:850;max-width:700px}.hero h1 em{font-style:normal;color:var(--gold)}.hero p.lead{font-size:clamp(14px,2.2vw,16px);max-width:620px;color:#c9ddd4;margin:19px 0 0;line-height:1.9}
+    .main{margin-top:-50px;position:relative;z-index:2;padding-bottom:70px}.panel{background:var(--paper);border:1px solid #e5e9e3;border-radius:22px;box-shadow:var(--shadow);padding:29px 31px}.form-title{display:flex;gap:10px;align-items:center;font-size:18px;font-weight:850;margin:0 0 22px}.form-title span{display:grid;place-items:center;background:#e9f4ed;color:#216b51;width:30px;height:30px;border-radius:9px;font-size:17px}
+    label{font-size:13px;font-weight:800;display:block;margin-bottom:9px}.station-box{position:relative}.station-box input{width:100%;height:58px;border:1.5px solid #cdd8cf;border-radius:12px;padding:0 17px 0 43px;background:#fff;color:var(--ink);font-size:18px;font-weight:650;transition:border .15s,box-shadow .15s}.station-box input:focus{border-color:#217a63;outline:none;box-shadow:0 0 0 3px rgba(24,113,91,.13)}.station-box input::placeholder{color:#a3ada7;font-weight:400}.station-icon{position:absolute;left:16px;top:17px;font-size:19px;color:#778c80;pointer-events:none}
+    .suggest{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:12px 0 23px}.suggest small{color:var(--muted);font-size:12px;margin-right:2px}.chip{background:#f5f8f5;border:1px solid #dde7df;border-radius:999px;padding:6px 13px;font-size:12px;color:#3e5c4f;font-weight:700;transition:.15s}.chip:hover{background:#e8f3ed;border-color:#9dbfae}
+    .field-row{display:grid;grid-template-columns:1fr 1fr;gap:17px;margin:0 0 23px}.field-row input{height:47px;width:100%;border-radius:10px;border:1px solid #cdd8cf;padding:0 13px;background:#fff;color:var(--ink)}
+    .actions{display:flex;align-items:center;gap:17px;flex-wrap:wrap}.main-btn{background:var(--green);color:#fff;border:0;border-radius:12px;min-height:54px;padding:0 25px;font-weight:850;font-size:15px;display:inline-flex;justify-content:center;align-items:center;gap:9px;box-shadow:0 6px 15px rgba(22,80,65,.18);transition:.2s}.main-btn:hover{transform:translateY(-1px);background:#11644f}.actions small{font-size:12px;color:var(--muted)}.error{display:none;color:#a33223;font-size:13px;margin-top:14px;font-weight:700}.error.show{display:block}
+    .results{display:none;margin-top:24px}.results.show{display:block;animation:appear .23s ease}.results-title{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:16px}.results-title h2{margin:0 0 4px;font-size:22px;letter-spacing:-.03em}.results-title p{color:var(--muted);font-size:13px;margin:0}.status{font-size:11px;display:inline-block;border:1px solid #dfc88f;border-radius:6px;background:#fff6e1;color:#7c642d;padding:5px 9px;font-weight:800;white-space:nowrap}
+    .route-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.route{border:1px solid #dce6df;background:#fff;border-radius:17px;padding:23px;min-height:257px;display:flex;flex-direction:column;box-shadow:0 3px 12px rgba(20,70,51,.03)}.route.keio{border-top:5px solid #c72e76}.route.jr{border-top:5px solid #25a560}.route-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.route-name{font-size:22px;font-weight:850;letter-spacing:-.03em}.tag{color:#536d5f;background:#eaf2eb;border-radius:6px;font-size:11px;font-weight:800;padding:4px 7px;white-space:nowrap}.route-path{font-weight:800;margin:17px 0 5px;font-size:16px}.muted{color:var(--muted);font-size:13px;margin:0}.route .route-links{margin-top:auto;padding-top:22px;display:flex;gap:8px;flex-wrap:wrap}.linkbtn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:41px;border-radius:9px;background:#eef5f0;color:#235746;padding:8px 13px;font-weight:800;text-decoration:none;font-size:13px;border:1px solid #d3e6d8;transition:.15s}.linkbtn:hover{background:#dcece0}.route.jr .linkbtn{background:#edf5f1}.route .hint{color:#67786f;font-size:12px;margin:9px 0 0}
+    .all{margin-top:15px;background:var(--deep);color:#fff;border-radius:17px;padding:24px 26px;display:flex;align-items:center;gap:20px;justify-content:space-between}.all strong{font-size:18px}.all p{font-size:12px;margin:4px 0 0;color:#cbded6}.all .all-link{border-radius:10px;background:var(--gold);color:#262619;text-decoration:none;padding:12px 17px;font-size:14px;font-weight:850;white-space:nowrap}.all .all-link:hover{background:#ffda88}
+    .note{margin:15px 0 0;padding:15px 17px;border:1px solid #e6dbc0;border-radius:11px;background:#fffbf2;font-size:12px;color:#756440;line-height:1.8}.note strong{color:#65502a}
+    .info{margin-top:38px}.info h2{font-size:19px;margin:0 0 13px}.how{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.how-card{padding:19px;background:#fff;border:1px solid var(--line);border-radius:14px}.number{display:inline-grid;place-items:center;width:27px;height:27px;border-radius:99px;background:#ebf1ed;color:#27664e;font-weight:850;font-size:12px}.how-card h3{font-size:14px;margin:12px 0 6px}.how-card p{font-size:12px;color:var(--muted);margin:0}
+    .faq{background:#edf2eb;border-radius:17px;padding:22px 25px;margin-top:30px}.faq h2{font-size:17px;margin:0 0 6px}.faq p{font-size:13px;line-height:1.9;color:#4f6558;margin:0}.faq p + p{margin-top:10px}.footer{margin-top:37px;text-align:center;font-size:11px;color:#7b8b81}.footer a{color:#537660;text-underline-offset:3px}.sep{margin:0 8px;color:#b2c4b6}
+    @keyframes appear{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:650px){.wrap{padding:0 16px}.hero{padding:18px 0 78px}.top{margin-bottom:42px}.mini-pill{font-size:10px;padding:6px 9px}.brand{font-size:12px;letter-spacing:.02em}.hero h1{font-size:35px}.hero p.lead{font-size:14px}.panel{padding:22px 18px;border-radius:18px}.main{margin-top:-43px}.field-row{gap:10px}.actions{display:block}.main-btn{width:100%}.actions small{display:block;text-align:center;margin-top:9px}.route-grid{grid-template-columns:1fr}.route{min-height:230px}.results-title{align-items:start;flex-direction:column;gap:8px}.all{flex-direction:column;align-items:stretch;padding:21px}.all .all-link{text-align:center}.how{grid-template-columns:1fr}.how-card{display:grid;grid-template-columns:29px 1fr;column-gap:12px;padding:14px}.how-card h3{margin:0}.how-card p{grid-column:2}.faq{padding:19px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="top"><div class="brand"><span class="brand-icon" aria-hidden="true">↗</span> TOKYO RACECOURSE ACCESS</div><span class="mini-pill">電車・乗換案内</span></div>
+      <p class="eyebrow">TOKYO RACECOURSE / 府中</p>
+      <h1>東京競馬場まで、<br><em>迷わず行こう。</em></h1>
+      <p class="lead">出発駅を入れるだけ。最短候補の検索と、京王線・JRそれぞれの行き方を、かんたんに確認できます。</p>
+    </div>
+  </header>
+  <main class="wrap main">
+    <section class="panel" aria-label="経路検索フォーム">
+      <h2 class="form-title"><span aria-hidden="true">⌕</span> 出発駅から検索</h2>
+      <form id="searchForm" novalidate>
+        <label for="origin">どの駅から出発しますか？</label>
+        <div class="station-box"><span class="station-icon" aria-hidden="true">⌖</span><input id="origin" name="origin" type="text" placeholder="例：新宿、品川、渋谷" autocomplete="off" inputmode="text" maxlength="80" required aria-describedby="originHelp"></div>
+        <div class="suggest" id="originHelp"><small>よく使う駅：</small><button class="chip" type="button" data-station="新宿">新宿</button><button class="chip" type="button" data-station="渋谷">渋谷</button><button class="chip" type="button" data-station="品川">品川</button><button class="chip" type="button" data-station="東京">東京</button><button class="chip" type="button" data-station="立川">立川</button></div>
+        <div class="field-row">
+          <div><label for="day">行く日</label><input id="day" type="date" value="2026-11-15" required></div>
+          <div><label for="clock">出発予定時刻</label><input id="clock" type="time" value="10:00" required></div>
+        </div>
+        <div class="actions"><button class="main-btn" type="submit">経路を調べる <span aria-hidden="true">↗</span></button><small>会員登録不要・無料・サーバー不要</small></div>
+        <p class="error" id="error" role="alert">出発駅を入力してください。</p>
+      </form>
+    </section>
+
+    <section id="results" class="results" aria-live="polite" aria-labelledby="resultHeading">
+      <div class="results-title"><div><h2 id="resultHeading">検索ルート</h2><p id="resultSub">出発駅からの経路を確認できます。</p></div><span class="status">最新の所要時間はリンク先で確認</span></div>
+      <div class="route-grid">
+        <article class="route keio">
+          <div class="route-head"><strong class="route-name">京王線ルート</strong><span class="tag">正門に近い</span></div>
+          <p class="route-path">府中競馬正門前駅 <span aria-hidden="true">→</span> 正門</p>
+          <p class="muted">京王競馬場線／駅から徒歩約2分</p>
+          <div class="route-links"><a class="linkbtn" id="keioYahoo" href="https://transit.yahoo.co.jp/" target="_blank" rel="noopener noreferrer">乗換・時刻・料金を見る ↗</a><a class="linkbtn" id="keioMaps" href="https://www.google.com/maps/" target="_blank" rel="noopener noreferrer">地図を見る ↗</a></div>
+          <p class="hint">乗換案内は指定した日付・出発時刻で検索します。</p>
+        </article>
+        <article class="route jr">
+          <div class="route-head"><strong class="route-name">JRルート</strong><span class="tag">西門から入場</span></div>
+          <p class="route-path">府中本町駅 <span aria-hidden="true">→</span> 西門</p>
+          <p class="muted">JR南武線・武蔵野線／駅から徒歩約5分</p>
+          <div class="route-links"><a class="linkbtn" id="jrYahoo" href="https://transit.yahoo.co.jp/" target="_blank" rel="noopener noreferrer">乗換・時刻・料金を見る ↗</a><a class="linkbtn" id="jrMaps" href="https://www.google.com/maps/" target="_blank" rel="noopener noreferrer">地図を見る ↗</a></div>
+          <p class="hint">乗換案内は指定した日付・出発時刻で検索します。</p>
+        </article>
+      </div>
+      <div class="all"><div><strong>所要時間が短いルートを探す</strong><p>京王線・JRを限定せず、東京競馬場までの公共交通ルートをGoogle マップで比較します。</p></div><a class="all-link" id="bestMaps" href="https://www.google.com/maps/" target="_blank" rel="noopener noreferrer">全ルートを比較 ↗</a></div>
+      <p class="note"><strong>ご注意：</strong>このページ自体は時刻表を取得したり、最短経路を自動計算したりしません。ボタンを押すと外部の乗換案内／Google マップで現在の検索結果が開きます。京王線・JRの比較では「駅までの所要時間」に加えて、上記の徒歩時間も考慮してください。Google マップは日付・時刻が自動反映されないため、リンク先で<strong>「行く日・出発時刻」</strong>を指定し直してください。</p>
+    </section>
+
+    <section class="info" aria-label="使い方"><h2>使い方は、たったの3ステップ</h2><div class="how">
+      <article class="how-card"><span class="number">01</span><h3>出発駅を入力</h3><p>駅名を入れます。全国の駅名に対応する乗換案内サービスへ渡します。</p></article>
+      <article class="how-card"><span class="number">02</span><h3>日付・時刻を選択</h3><p>初期設定は2026年11月15日（日）10:00出発です。変更できます。</p></article>
+      <article class="how-card"><span class="number">03</span><h3>経路を比較</h3><p>京王線とJRの所要時間・料金を確認し、便利なルートを選びましょう。</p></article>
+    </div></section>
+
+    <section class="faq" aria-label="アクセスの補足"><h2>東京競馬場の最寄り駅について</h2><p><strong>京王線：</strong>「府中競馬正門前駅」から正門まで専用歩道橋で徒歩約2分。東府中駅から京王競馬場線に乗り換えるルートが基本です。</p><p><strong>JR：</strong>「府中本町駅」臨時改札口から西門まで専用歩道橋で徒歩約5分。臨時改札口は利用できる日・時間帯をご確認ください。</p></section>
+    <footer class="footer">非公式のアクセス補助ページ <span class="sep">·</span> <a href="https://jra.jp/facilities/race/tokyo/access/" target="_blank" rel="noopener noreferrer">JRA公式アクセス情報 ↗</a><br>このHTMLは端末上で動作します。駅名は保存・送信されません（外部の経路検索を開く際は検索条件が送られます）。</footer>
+  </main>
+
+  <script>
+  (() => {
+    'use strict';
+    const el = id => document.getElementById(id);
+    const form = el('searchForm');
+    const originEl = el('origin');
+    const dateEl = el('day');
+    const timeEl = el('clock');
+    const errorEl = el('error');
+    const resultsEl = el('results');
+
+    // Yahoo!路線情報の検索結果画面への通常のリンク（API連携・スクレイピングなし）
+    function yahooDirections(origin, dest, date, time) {
+      const [y,m,d] = date.split('-');
+      const [h,mi] = time.split(':');
+      const p = new URLSearchParams({
+        from: origin, to: dest,
+        y: y, m: m, d: d,
+        hh: h, m1: mi.slice(0,1), m2: mi.slice(1,2),
+        type: '1', ticket: 'ic'
+      });
+      return 'https://transit.yahoo.co.jp/search/result?' + p.toString();
+    }
+    function mapsDirections(origin, dest) {
+      const p = new URLSearchParams({api:'1', origin:origin+'駅', destination:dest, travelmode:'transit'});
+      return 'https://www.google.com/maps/dir/?' + p.toString();
+    }
+    function formatDate(date, time) {
+      const [y,m,d] = date.split('-').map(Number);
+      const dt = new Date(y,m-1,d);
+      const wd = ['日','月','火','水','木','金','土'][dt.getDay()];
+      return `${y}年${m}月${d}日（${wd}）${time}出発`;
+    }
+    function search() {
+      const origin = originEl.value.trim().replace(/駅$/, '');
+      const date = dateEl.value;
+      const time = timeEl.value;
+      if (!origin || !date || !time) {
+        errorEl.textContent = !origin ? '出発駅を入力してください。' : '日付と出発予定時刻を指定してください。';
+        errorEl.classList.add('show');
+        originEl.setAttribute('aria-invalid', String(!origin));
+        if (!origin) originEl.focus();
+        return;
+      }
+      originEl.removeAttribute('aria-invalid');
+      errorEl.classList.remove('show');
+      el('resultHeading').textContent = `${origin}駅から東京競馬場へ`;
+      el('resultSub').textContent = formatDate(date, time) + ' ・ 乗換案内はこちら';
+      el('keioYahoo').href = yahooDirections(origin,'府中競馬正門前',date,time);
+      el('jrYahoo').href = yahooDirections(origin,'府中本町',date,time);
+      el('keioMaps').href = mapsDirections(origin,'府中競馬正門前駅 東京都府中市');
+      el('jrMaps').href = mapsDirections(origin,'府中本町駅 東京都府中市');
+      el('bestMaps').href = mapsDirections(origin,'東京競馬場 東京都府中市日吉町1-1');
+      resultsEl.classList.add('show');
+      resultsEl.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+    form.addEventListener('submit', e => {e.preventDefault(); search();});
+    document.querySelectorAll('[data-station]').forEach(btn => {
+      btn.addEventListener('click', () => {originEl.value=btn.dataset.station;originEl.focus();errorEl.classList.remove('show');});
+    });
+    // タブから戻った際に検索条件が変わっていた場合、古いリンクを使わせない
+    [originEl,dateEl,timeEl].forEach(input => input.addEventListener('input',()=>{resultsEl.classList.remove('show');}));
+    // 直接リンクされたHTMLのクエリ引数 ?from=新宿 にも対応
+    try {const s = new URLSearchParams(location.search).get('from');if(s && s.length<=80){originEl.value=s;}}catch(e){}
+  })();
+  </script>
+</body>
+</html>
