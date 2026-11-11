@@ -22,7 +22,7 @@
     .field-row{display:grid;grid-template-columns:1fr 1fr;gap:17px;margin:0 0 23px}.field-row input{height:47px;width:100%;border-radius:10px;border:1px solid #cdd8cf;padding:0 13px;background:#fff;color:var(--ink)}
     .actions{display:flex;align-items:center;gap:17px;flex-wrap:wrap}.main-btn{background:var(--green);color:#fff;border:0;border-radius:12px;min-height:54px;padding:0 25px;font-weight:850;font-size:15px;display:inline-flex;justify-content:center;align-items:center;gap:9px;box-shadow:0 6px 15px rgba(22,80,65,.18);transition:.2s}.main-btn:hover{transform:translateY(-1px);background:#11644f}.actions small{font-size:12px;color:var(--muted)}.error{display:none;color:#a33223;font-size:13px;margin-top:14px;font-weight:700}.error.show{display:block}
     .results{display:none;margin-top:24px}.results.show{display:block;animation:appear .23s ease}.results-title{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:16px}.results-title h2{margin:0 0 4px;font-size:22px;letter-spacing:-.03em}.results-title p{color:var(--muted);font-size:13px;margin:0}.status{font-size:11px;display:inline-block;border:1px solid #dfc88f;border-radius:6px;background:#fff6e1;color:#7c642d;padding:5px 9px;font-weight:800;white-space:nowrap}
-    .route-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.route{border:1px solid #dce6df;background:#fff;border-radius:17px;padding:23px;min-height:257px;display:flex;flex-direction:column;box-shadow:0 3px 12px rgba(20,70,51,.03)}.route.keio{border-top:5px solid #c72e76}.route.jr{border-top:5px solid #25a560}.route-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.route-name{font-size:22px;font-weight:850;letter-spacing:-.03em}.tag{color:#536d5f;background:#eaf2eb;border-radius:6px;font-size:11px;font-weight:800;padding:4px 7px;white-space:nowrap}.route-path{font-weight:800;margin:17px 0 5px;font-size:16px}.muted{color:var(--muted);font-size:13px;margin:0}.route .route-links{margin-top:auto;padding-top:22px;display:flex;gap:8px;flex-wrap:wrap}.linkbtn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:41px;border-radius:9px;background:#eef5f0;color:#235746;padding:8px 13px;font-weight:800;text-decoration:none;font-size:13px;border:1px solid #d3e6d8;transition:.15s}.linkbtn:hover{background:#dcece0}.route.jr .linkbtn{background:#edf5f1}.route .hint{color:#67786f;font-size:12px;margin:9px 0 0}
+    .route-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.route{border:1px solid #dce6df;background:#fff;border-radius:17px;padding:23px;min-height:257px;display:flex;flex-direction:column;box-shadow:0 3px 12px rgba(20,70,51,.03)}.route.keio{border-top:5px solid #c72e76}.route.jr{border-top:5px solid #25a560}.route-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.route-name{font-size:22px;font-weight:850;letter-spacing:-.03em}.tag{color:#536d5f;background:#eaf2eb;border-radius:6px;font-size:11px;font-weight:800;padding:4px 7px;white-space:nowrap}.route-path{font-weight:800;margin:17px 0 5px;font-size:16px}.muted{color:var(--muted);font-size:13px;margin:0}.route .route-links{margin-top:auto;padding-top:22px;display:flex;gap:8px;flex-wrap:wrap}.linkbtn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:41px;border-radius:9px;background:#eef5f0;color:#235746;padding:8px 13px;font-weight:800;text-decoration:none;font-size:13px;border:1px solid #d3e6d8;transition:.15s}.linkbtn:hover{background:#dcece0}.linkbtn{cursor:pointer;font-family:inherit}.copybtn{background:#fff!important;color:#406358!important;border:1px solid #c7d6cb!important}.copybtn:focus-visible,.linkbtn:focus-visible{outline:3px solid #eabf6c;outline-offset:2px}.copy-status{display:block;font-size:12px;color:#1b674d;font-weight:700;min-height:1.2em;margin-top:4px}.route.jr .linkbtn{background:#edf5f1}.route .hint{color:#67786f;font-size:12px;margin:9px 0 0}
     .all{margin-top:15px;background:var(--deep);color:#fff;border-radius:17px;padding:24px 26px;display:flex;align-items:center;gap:20px;justify-content:space-between}.all strong{font-size:18px}.all p{font-size:12px;margin:4px 0 0;color:#cbded6}.all .all-link{border-radius:10px;background:var(--gold);color:#262619;text-decoration:none;padding:12px 17px;font-size:14px;font-weight:850;white-space:nowrap}.all .all-link:hover{background:#ffda88}
     .note{margin:15px 0 0;padding:15px 17px;border:1px solid #e6dbc0;border-radius:11px;background:#fffbf2;font-size:12px;color:#756440;line-height:1.8}.note strong{color:#65502a}
     .info{margin-top:38px}.info h2{font-size:19px;margin:0 0 13px}.how{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.how-card{padding:19px;background:#fff;border:1px solid var(--line);border-radius:14px}.number{display:inline-grid;place-items:center;width:27px;height:27px;border-radius:99px;background:#ebf1ed;color:#27664e;font-weight:850;font-size:12px}.how-card h3{font-size:14px;margin:12px 0 6px}.how-card p{font-size:12px;color:var(--muted);margin:0}
@@ -64,19 +64,20 @@
           <div class="route-head"><strong class="route-name">京王線ルート</strong><span class="tag">正門に近い</span></div>
           <p class="route-path">府中競馬正門前駅 <span aria-hidden="true">→</span> 正門</p>
           <p class="muted">京王競馬場線／駅から徒歩約2分</p>
-          <div class="route-links"><a class="linkbtn" id="keioYahoo" href="https://transit.yahoo.co.jp/" target="_blank" rel="noopener noreferrer">指定日時で乗換検索 ↗</a><a class="linkbtn" id="keioMaps" href="https://www.google.com/maps/" target="_blank" rel="noopener noreferrer">駅の場所を見る ↗</a></div>
+          <div class="route-links"><button class="linkbtn" id="keioYahoo" type="button">ブラウザで乗換検索 ↗</button><button class="linkbtn copybtn" id="keioCopy" type="button">検索URLをコピー</button><a class="linkbtn" id="keioMaps" href="https://www.google.com/maps/" target="_blank" rel="noopener noreferrer">駅の場所を見る ↗</a></div>
           <p class="hint" id="keioHint">選択した日時をYahoo!乗換案内に引き継ぎます。</p>
         </article>
         <article class="route jr">
           <div class="route-head"><strong class="route-name">JRルート</strong><span class="tag">西門から入場</span></div>
           <p class="route-path">府中本町駅 <span aria-hidden="true">→</span> 西門</p>
           <p class="muted">JR南武線・武蔵野線／駅から徒歩約5分</p>
-          <div class="route-links"><a class="linkbtn" id="jrYahoo" href="https://transit.yahoo.co.jp/" target="_blank" rel="noopener noreferrer">指定日時で乗換検索 ↗</a><a class="linkbtn" id="jrMaps" href="https://www.google.com/maps/" target="_blank" rel="noopener noreferrer">駅の場所を見る ↗</a></div>
+          <div class="route-links"><button class="linkbtn" id="jrYahoo" type="button">ブラウザで乗換検索 ↗</button><button class="linkbtn copybtn" id="jrCopy" type="button">検索URLをコピー</button><a class="linkbtn" id="jrMaps" href="https://www.google.com/maps/" target="_blank" rel="noopener noreferrer">駅の場所を見る ↗</a></div>
           <p class="hint" id="jrHint">選択した日時をYahoo!乗換案内に引き継ぎます。</p>
         </article>
       </div>
+      <div class="copy-status" id="copyStatus" aria-live="polite"></div>
       <div class="all"><div><strong>東京競馬場の場所を確認</strong><p>こちらは地図専用です。日付・時刻を指定したルート比較は上の「指定日時で乗換検索」からご確認ください。</p></div><a class="all-link" id="bestMaps" href="https://www.google.com/maps/" target="_blank" rel="noopener noreferrer">競馬場の地図を見る ↗</a></div>
-      <p class="note"><strong>日時について：</strong>「指定日時で乗換検索」は、入力した日付・出発時刻をYahoo!乗換案内の検索URLに設定します。「駅の場所を見る」「競馬場の地図を見る」は地図表示のみで、日時は引き継ぎません。Yahoo!側の仕様やアプリへの切り替えで設定が変わる場合は、開いた画面の日時もご確認ください。<br><strong>最短経路について：</strong>このページは時刻表を直接取得しません。2つの乗換検索結果に競馬場までの徒歩時間（京王線約2分／JR約5分）も加えて比較してください。</p>
+      <p class="note"><strong>日時について：</strong>「ブラウザで乗換検索」はアプリへの切り替えを避けやすいフォーム送信方式で、日時指定付きのYahoo!乗換案内を開きます。ただし機種の設定によってアプリが起動する場合があります。そのときは「検索URLをコピー」を押し、SafariやChromeを開いて<strong>アドレス欄にURLを貼り付けて検索</strong>してください。指定した日付・時刻を保ちやすくなります。「駅の場所を見る」「競馬場の地図を見る」は地図専用です。<br><strong>最短経路について：</strong>このページは時刻表を直接取得しません。2つの乗換検索結果に競馬場までの徒歩時間（京王線約2分／JR約5分）も加えて比較してください。</p>
     </section>
 
     <section class="info" aria-label="使い方"><h2>使い方は、たったの3ステップ</h2><div class="how">
@@ -139,16 +140,16 @@
       errorEl.classList.remove('show');
       el('resultHeading').textContent = `${origin}駅から東京競馬場へ`;
       el('resultSub').textContent = formatDate(date, time) + ' ・ 乗換案内はこちら';
-      el('keioYahoo').href = yahooDirections(origin,'府中競馬正門前',date,time);
-      el('jrYahoo').href = yahooDirections(origin,'府中本町',date,time);
+      // 日付と時刻はボタンを押すときに都度読み取り、フォームGETで検索する。
       // 日時が渡せないGoogleマップは場所の確認だけに限定。
       el('keioMaps').href = mapsLocation('府中競馬正門前駅 東京都府中市');
       el('jrMaps').href = mapsLocation('府中本町駅 東京都府中市');
       el('bestMaps').href = mapsLocation('東京競馬場 東京都府中市日吉町1-1');
       const [,mo,dy] = date.split('-');
       const displayTime = `${Number(mo)}/${Number(dy)} ${time}`;
-      el('keioYahoo').textContent = `${displayTime}で乗換検索 ↗`;
-      el('jrYahoo').textContent = `${displayTime}で乗換検索 ↗`;
+      el('keioYahoo').textContent = `${displayTime}でブラウザ検索 ↗`;
+      el('jrYahoo').textContent = `${displayTime}でブラウザ検索 ↗`;
+      el('copyStatus').textContent = '';
       el('keioHint').textContent = `Yahoo!乗換案内へ：${formatDate(date,time)}（府中競馬正門前駅まで）`;
       el('jrHint').textContent = `Yahoo!乗換案内へ：${formatDate(date,time)}（府中本町駅まで）`;
       resultsEl.classList.add('show');
@@ -164,14 +165,50 @@
       input.addEventListener('input',invalidate);
       input.addEventListener('change',invalidate);
     });
-    // リンクを押す直前にも現在の検索条件からURLを再構築する。
-    ['keioYahoo','jrYahoo'].forEach(id => el(id).addEventListener('click', () => {
+    function getUrl(route) {
       const origin=originEl.value.trim().replace(/駅$/, '');
-      if(origin && dateEl.value && timeEl.value) {
-        el('keioYahoo').href=yahooDirections(origin,'府中競馬正門前',dateEl.value,timeEl.value);
-        el('jrYahoo').href=yahooDirections(origin,'府中本町',dateEl.value,timeEl.value);
+      if(!origin || !dateEl.value || !timeEl.value) return null;
+      return yahooDirections(origin,route==='keio'?'府中競馬正門前':'府中本町',dateEl.value,timeEl.value);
+    }
+    // 直接リンク（Universal Link）ではなくフォームGETで開くことで、
+    // 対応アプリへの自動切り替えを避けられるケースがある。
+    // 端末側のアプリ関連付けまではサイトから制御できない。
+    function openViaForm(route){
+      const url=getUrl(route);
+      if(!url) { el('copyStatus').textContent='先に駅名・日時を入力して検索してください。'; return; }
+      const u=new URL(url);
+      const f=document.createElement('form');
+      f.action=u.origin+u.pathname;
+      f.method='GET';
+      f.target='_blank';
+      f.style.display='none';
+      for (const [name,value] of u.searchParams) {
+        const field=document.createElement('input');
+        field.type='hidden'; field.name=name; field.value=value; f.appendChild(field);
       }
-    }));
+      document.body.appendChild(f);
+      f.submit();
+      f.remove();
+    }
+    async function copyUrl(route) {
+      const url=getUrl(route);
+      if(!url) { el('copyStatus').textContent='先に駅名・日時を入力して検索してください。'; return; }
+      let copied=false;
+      try { if(navigator.clipboard?.writeText) { await navigator.clipboard.writeText(url); copied=true; } } catch(e) {}
+      if(!copied) {
+        const input=document.createElement('textarea');
+        input.value=url; input.readOnly=true; input.style.position='fixed'; input.style.opacity='0';
+        document.body.appendChild(input); input.select();
+        try { copied=document.execCommand('copy'); } catch(e) {}
+        input.remove();
+      }
+      if(copied) el('copyStatus').textContent='検索URLをコピーしました。Safari・Chromeのアドレス欄に貼り付けて開いてください。';
+      else window.prompt('次のURLをコピーしてブラウザのアドレス欄に貼り付けてください。',url);
+    }
+    el('keioYahoo').addEventListener('click',()=>openViaForm('keio'));
+    el('jrYahoo').addEventListener('click',()=>openViaForm('jr'));
+    el('keioCopy').addEventListener('click',()=>copyUrl('keio'));
+    el('jrCopy').addEventListener('click',()=>copyUrl('jr'));
     // 直接リンクされたHTMLのクエリ引数 ?from=新宿 にも対応
     try {const s = new URLSearchParams(location.search).get('from');if(s && s.length<=80){originEl.value=s;}}catch(e){}
   })();
